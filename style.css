@@ -282,12 +282,13 @@ header {
 /* --- Section Héro / Bannière principale --- */
 .hero-section {
     position: relative;
-    background: linear-gradient(to right, var(--white) 50%, var(--light-gray) 100%); /* Fond dégradé subtil */
+    /* Le dégradé de fond reste, mais sans les formes::before et ::after */
+    background: linear-gradient(to right, var(--white) 50%, var(--light-gray) 100%); 
     padding: 100px 0 0;
-    min-height: 650px; /* Augmenter la hauteur pour l'image */
+    min-height: 650px; 
     overflow: hidden;
     display: flex;
-    align-items: flex-end; /* Align to bottom for image placement */
+    align-items: flex-end; 
     justify-content: center;
 }
 
@@ -297,47 +298,47 @@ header {
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    position: relative; /* Pour positionner les éléments internes */
-    z-index: 2; /* S'assurer que le contenu est au-dessus des formes décoratives */
+    position: relative; 
+    z-index: 2; 
 }
 
 .hero-text-content {
     flex: 1;
-    padding-bottom: 100px; /* Espace pour le contenu texte en bas */
+    padding-bottom: 100px; 
     text-align: left;
-    max-width: 60%; /* Limiter la largeur du texte */
+    max-width: 60%; 
     position: relative;
     z-index: 2;
 }
 
 .slogan-top {
-    color: var(--primary-orange); /* Orange pour le slogan d'accroche */
+    color: var(--primary-orange); 
     font-size: 1.2em;
     font-weight: 600;
     margin-bottom: 15px;
     text-transform: uppercase;
-    letter-spacing: 1px; /* Espacement des lettres */
+    letter-spacing: 1px; 
 }
 
 .hero-text-content h1 {
-    font-size: 4.5em; /* Très grande taille pour le titre principal */
+    font-size: 4.5em; 
     line-height: 1.1;
     margin-bottom: 40px;
     color: var(--dark-text);
     text-shadow: 3px 3px 8px rgba(0,0,0,0.1);
-    font-weight: 800; /* Ultra-gras */
+    font-weight: 800; 
 }
 
 .language-selection {
     display: flex;
-    gap: 25px; /* Plus d'espace entre les boutons */
+    gap: 25px; 
     margin-top: 30px;
 }
 
 .lang-btn {
-    background-color: var(--primary-orange); /* Boutons de langue en orange */
+    background-color: var(--primary-orange); 
     color: var(--white);
-    padding: 15px 40px; /* Plus de padding */
+    padding: 15px 40px; 
     border-radius: 50px;
     font-weight: bold;
     font-size: 1.1em;
@@ -346,13 +347,13 @@ header {
 }
 
 .lang-btn:hover {
-    background-color: var(--primary-blue); /* Passe au bleu au survol */
+    background-color: var(--primary-blue); 
     transform: translateY(-3px);
     text-decoration: none;
 }
 
 .lang-btn.active {
-    background-color: var(--primary-blue); /* Le bouton actif est bleu */
+    background-color: var(--primary-blue); 
     color: var(--white);
     box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
@@ -361,7 +362,7 @@ header {
     flex: 1;
     text-align: right;
     position: relative;
-    z-index: 2; /* S'assure que l'image est au-dessus des formes décoratives */
+    z-index: 2; 
     height: 100%;
     display: flex;
     align-items: flex-end;
@@ -373,43 +374,17 @@ header {
     height: auto;
     display: block;
     position: relative;
-    bottom: -80px; /* Ajuster pour qu'elle "sorte" du bas de la section */
+    bottom: -80px; 
     right: 0;
-    object-fit: contain; /* S'assure que l'image tient dans son cadre sans être coupée */
+    object-fit: contain; 
 }
 
-/* Styles des formes décoratives (Ajusté pour être plus doux) */
-.hero-section::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 60%;
-    height: 100%;
-    background: rgba(173, 216, 230, 0.4); /* Bleu clair (LightBlue) avec 40% d'opacité */
-    transform: skewY(-10deg);
-    transform-origin: bottom right;
-    z-index: 0;
-    border-top-left-radius: 200px;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.05); /* Ombre très légère */
-}
+/* Les styles des formes décoratives .hero-section::before et ::after sont SUPPRIMÉS ici */
 
-.hero-section::after {
-    content: '';
-    position: absolute;
-    bottom: 150px; /* Positionnement du cercle orange */
-    right: 25%; /* Ajuster la position */
-    width: 180px; /* Taille du cercle */
-    height: 180px;
-    background: linear-gradient(to bottom right, var(--primary-orange), var(--light-yellow)); /* Dégradé orange/jaune */
-    border-radius: 50%;
-    z-index: 1;
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
-}
 
 /* --- Styles des Sections de Contenu Générales --- */
 section {
-    padding: 80px 0; /* Plus de rembourrage standard */
+    padding: 80px 0; 
     text-align: center;
 }
 
@@ -422,11 +397,11 @@ section {
 }
 
 section h2 {
-    font-size: 3em; /* Plus grand titre */
+    font-size: 3em; 
     margin-bottom: 40px;
     position: relative;
     padding-bottom: 15px;
-    font-weight: 800; /* Très gras */
+    font-weight: 800; 
 }
 
 section h2::after {
@@ -435,9 +410,9 @@ section h2::after {
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
-    width: 80px; /* Ligne plus longue */
-    height: 5px; /* Plus épaisse */
-    background-color: var(--primary-blue); /* Ligne bleue */
+    width: 80px; 
+    height: 5px; 
+    background-color: var(--primary-blue); 
     border-radius: 3px;
 }
 
@@ -445,28 +420,28 @@ section h2::after {
 .service-grid, .advantages-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px; /* Plus grand espacement */
+    gap: 40px; 
     margin-top: 50px;
 }
 
 .service-item, .advantage-item {
     background-color: var(--white);
-    padding: 35px; /* Plus de padding */
-    border-radius: 10px; /* Plus grand arrondi */
+    padding: 35px; 
+    border-radius: 10px; 
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
 }
 
 .service-item:hover, .advantage-item:hover {
-    transform: translateY(-8px); /* Plus grande élévation au survol */
+    transform: translateY(-8px); 
     box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
 
 .service-item img {
-    height: 80px; /* Plus grandes icônes de service */
+    height: 80px; 
     margin-bottom: 20px;
-    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.1)); /* Ombre légère sur les icônes */
+    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.1)); 
 }
 
 .service-item h3, .advantage-item h3 {
@@ -498,9 +473,9 @@ section h2::after {
     display: inline-block;
     background-color: var(--primary-blue);
     color: var(--white);
-    padding: 12px 25px; /* Plus de padding */
+    padding: 12px 25px; 
     margin: 10px 12px;
-    border-radius: 50px; /* Bords arrondis */
+    border-radius: 50px; 
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 3px 10px rgba(0,0,0,0.15);
 }
@@ -512,9 +487,9 @@ section h2::after {
 
 /* --- Pied de page (Footer) --- */
 footer {
-    background-color: var(--dark-text); /* Fond foncé */
+    background-color: var(--dark-text); 
     color: var(--white);
-    padding: 40px 0; /* Plus de padding */
+    padding: 40px 0; 
     text-align: center;
     font-size: 0.95em;
     box-shadow: inset 0 5px 15px rgba(0,0,0,0.2);
@@ -549,7 +524,7 @@ footer p {
         text-align: center;
     }
     .logo {
-        height: 60px; /* Ajustement du logo */
+        height: 60px; 
     }
     .main-nav ul {
         flex-wrap: wrap;
@@ -577,7 +552,7 @@ footer p {
 
     .hero-text-content {
         padding-bottom: 40px;
-        max-width: 90%; /* Prend plus de place sur les tablettes */
+        max-width: 90%; 
     }
 
     .slogan-top {
@@ -589,7 +564,7 @@ footer p {
     }
 
     .language-selection {
-        flex-direction: row; /* Garde en ligne pour l'instant */
+        flex-direction: row; 
         justify-content: center;
         gap: 15px;
         margin-top: 25px;
@@ -603,8 +578,8 @@ footer p {
     .hero-image-content {
         padding-top: 0;
         max-width: 70%;
-        justify-content: center; /* Centre l'image */
-        bottom: 0; /* Réinitialise le positionnement */
+        justify-content: center; 
+        bottom: 0; 
     }
 
     .hero-image-content img {
@@ -612,18 +587,9 @@ footer p {
         max-width: 100%;
     }
 
-    .hero-section::before {
-        transform: skewY(-5deg); /* Moins d'inclinaison */
-        width: 80%;
-        border-top-left-radius: 100px;
-    }
-
-    .hero-section::after {
-        bottom: 80px;
-        right: 15%;
-        width: 120px;
-        height: 120px;
-    }
+    /* Les formes sont supprimées, donc ces règles ne sont plus nécessaires */
+    /* .hero-section::before { ... } */
+    /* .hero-section::after { ... } */
 
     section {
         padding: 60px 0;
@@ -634,7 +600,7 @@ footer p {
     }
 
     .service-grid, .advantages-grid {
-        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        grid-template-columns: 1fr; 
         gap: 25px;
     }
     .service-item, .advantage-item {
@@ -660,15 +626,15 @@ footer p {
     }
 
     .header-main-content {
-        flex-direction: row; /* Logo à gauche, menu burger à droite */
+        flex-direction: row; 
         justify-content: space-between;
         align-items: center;
     }
     .main-nav {
-        display: none; /* Le menu principal est caché sur mobile */
+        display: none; 
     }
     .mobile-menu-toggle {
-        display: block; /* Affiche l'icône du menu burger */
+        display: block; 
     }
 
     .hero-section {
@@ -681,7 +647,7 @@ footer p {
     }
 
     .language-selection {
-        flex-direction: column; /* Boutons de langue empilés */
+        flex-direction: column; 
         gap: 10px;
         width: 80%;
         margin: 20px auto 0;
@@ -695,23 +661,16 @@ footer p {
         max-width: 90%;
     }
 
-    .hero-section::before {
-        height: 70%;
-        width: 100%;
-        border-top-left-radius: 0;
-        transform: skewY(0deg); /* Supprime l'inclinaison sur les tout petits écrans */
-    }
-
-    .hero-section::after {
-        display: none; /* Cache le cercle orange sur mobile si l'espace est trop limité */
-    }
+    /* Les formes sont supprimées, donc ces règles ne sont plus nécessaires */
+    /* .hero-section::before { ... } */
+    /* .hero-section::after { ... } */
 
     section h2 {
         font-size: 2em;
     }
 
     .service-grid, .advantages-grid {
-        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        grid-template-columns: 1fr; 
         gap: 25px;
     }
     .service-item, .advantage-item {
