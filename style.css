@@ -1,58 +1,468 @@
-/* --- Styles généraux et réinitialisation --- */
+/* --- Couleurs de la charte NEW TECH (approximées d'après votre logo) --- */
+:root {
+    --primary-blue: #215099; /* Bleu foncé du N de votre logo */
+    --light-blue: #4a90e2;   /* Bleu clair du N de votre logo */
+    --primary-orange: #f5a623; /* Orange/Jaune du G de votre logo */
+    --light-gray: #e9ecef;   /* Gris clair pour les fonds alternés */
+    --dark-text: #2c3e50;    /* Texte foncé, presque noir */
+    --white: #ffffff;
+}
+
+/* --- Styles Généraux (ajustements pour coller aux couleurs de votre charte) --- */
 body {
-    font-family: 'Arial', sans-serif; /* Police de caractère générale */
-    line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
-    margin: 0; /* Supprime les marges par défaut du navigateur */
-    padding: 0; /* Supprime le rembourrage par défaut du navigateur */
-    background-color: #f4f4f4; /* Couleur de fond légère */
-    color: #333; /* Couleur de texte principale */
-    scroll-behavior: smooth; /* Défilement doux lors des ancres */
+    font-family: 'Arial', sans-serif; /* Conserver Arial ou choisir une police plus proche des maquettes si besoin */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-gray);
+    color: var(--dark-text);
+    scroll-behavior: smooth;
 }
 
-/* Conteneur central pour limiter la largeur du contenu et le centrer */
-.container {
-    max-width: 1200px; /* Largeur maximale du contenu */
-    margin: 0 auto; /* Centre le conteneur horizontalement */
-    padding: 0 20px; /* Rembourrage sur les côtés pour ne pas coller aux bords */
-}
-
-/* Réinitialisation de base pour les images */
-img {
-    max-width: 100%; /* S'assure que les images ne dépassent pas de leur conteneur */
-    height: auto; /* Maintient le ratio de l'image */
-    display: block; /* Supprime l'espace sous les images pour une meilleure mise en page */
-}
-
-/* Styles pour les liens (couleur, pas de soulignement) */
 a {
-    color: #007bff; /* Couleur des liens, une nuance de bleu */
-    text-decoration: none; /* Supprime le soulignement par défaut */
+    color: var(--primary-blue);
+    text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline; /* Souligne les liens au survol */
+    text-decoration: underline;
 }
 
-/* Styles pour les titres (H1, H2, etc.) */
 h1, h2, h3 {
-    color: #2c3e50; /* Une couleur foncée pour les titres (bleu marine ou gris foncé) */
-    margin-top: 0; /* Supprime la marge supérieure par défaut */
-    margin-bottom: 20px; /* Ajoute une marge sous les titres */
+    color: var(--dark-text);
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
-/* --- Bouton d'appel à l'action (CTA) --- */
 .btn-cta {
-    display: inline-block; /* Pour pouvoir appliquer des marges et un rembourrage */
-    background-color: #007bff; /* Couleur de fond du bouton (bleu) */
-    color: #fff; /* Couleur du texte du bouton (blanc) */
-    padding: 12px 25px; /* Rembourrage intérieur du bouton */
-    border-radius: 5px; /* Bords légèrement arrondis */
-    text-transform: uppercase; /* Texte en majuscules */
-    font-weight: bold; /* Texte en gras */
-    transition: background-color 0.3s ease; /* Transition douce au survol */
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 .btn-cta:hover {
-    background-color: #0056b3; /* Changement de couleur au survol */
-    text-decoration: none; /* S'assure que le texte ne soit pas souligné au survol */
+    background-color: var(--light-blue); /* Changement de couleur au survol */
+    text-decoration: none;
+}
+
+
+/* --- Top Bar (Barre supérieure) --- */
+.top-bar {
+    background-color: var(--dark-text); /* Fond très foncé */
+    color: var(--white);
+    font-size: 0.85em;
+    padding: 10px 0;
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur petits écrans */
+}
+
+.top-bar-left span {
+    margin-right: 20px;
+    white-space: nowrap; /* Empêche le texte de se couper */
+}
+
+.top-bar-left i {
+    color: var(--primary-orange); /* Icônes en orange */
+    margin-right: 5px;
+}
+
+.top-bar-right a {
+    color: var(--white);
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+.top-bar-right a:hover {
+    color: var(--primary-orange);
+    text-decoration: none;
+}
+
+.top-bar-right i {
+    margin-right: 3px;
+}
+
+.lang-switch img {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+
+.intranet-link {
+    background-color: var(--primary-orange);
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.intranet-link:hover {
+    background-color: darken(var(--primary-orange), 10%); /* Assombrir au survol */
+    text-decoration: none;
+}
+
+/* --- En-tête principal (Header) --- */
+header {
+    background-color: var(--white); /* Fond blanc pour le header principal */
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Ombre élégante */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 70px; /* Taille de votre logo */
+    width: auto;
+}
+
+.logo-text { /* Si vous utilisez du texte pour le logo */
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--primary-blue);
+    line-height: 1;
+}
+
+.logo-text small {
+    display: block;
+    font-size: 0.5em;
+    font-weight: normal;
+    color: var(--dark-text);
+}
+
+.main-nav ul {
+    list-style: none; /* Supprime les puces de liste */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Aligne les éléments de menu horizontalement */
+    align-items: center;
+}
+
+.main-nav ul li {
+    position: relative; /* Pour les sous-menus déroulants */
+    margin-left: 30px; /* Espacement entre les éléments du menu */
+}
+
+.main-nav ul li a {
+    color: var(--dark-text); /* Couleur des liens de navigation */
+    font-weight: bold;
+    padding: 10px 0;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+/* Styles pour les sous-menus déroulants */
+.dropdown-content {
+    display: none; /* Cache le sous-menu par défaut */
+    position: absolute;
+    background-color: var(--white);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-top: 3px solid var(--primary-blue);
+    border-radius: 0 0 5px 5px;
+}
+
+.dropdown-content a {
+    color: var(--dark-text);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-weight: normal;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-blue);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Affiche le sous-menu au survol du parent */
+}
+
+.webmail-btn {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.webmail-btn:hover {
+    background-color: var(--light-blue);
+    text-decoration: none;
+}
+
+.webmail-btn i {
+    margin-right: 8px;
+    color: var(--primary-orange); /* Une petite touche orange pour l'icône */
+}
+
+.mobile-menu-toggle {
+    display: none; /* Caché par défaut sur les grands écrans */
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--dark-text);
+}
+
+
+/* --- Section Héro / Bannière principale --- */
+.hero-section {
+    position: relative;
+    background: linear-gradient(to right, var(--white) 50%, #d8e8d8 100%); /* Fond dégradé blanc à vert clair */
+    padding: 80px 0 0; /* Rembourrage en haut, pas en bas pour que l'image remonte */
+    min-height: 600px; /* Hauteur minimale pour l'image */
+    overflow: hidden; /* Cache ce qui dépasse */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-inner {
+    display: flex;
+    align-items: flex-end; /* Aligner le contenu en bas du conteneur */
+    justify-content: space-between;
+    width: 100%;
+    height: 100%; /* Important pour que les colonnes prennent la hauteur */
+}
+
+.hero-text-content {
+    flex: 1; /* Prend l'espace disponible */
+    padding-bottom: 80px; /* Espace pour le contenu texte en bas */
+    text-align: left; /* Texte aligné à gauche */
+    z-index: 2; /* S'assure que le texte est au-dessus du décor */
+}
+
+.slogan-top {
+    color: var(--primary-blue);
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.hero-text-content h1 {
+    font-size: 4em; /* Grande taille de police */
+    line-height: 1.1;
+    margin-bottom: 30px;
+    color: var(--dark-text);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.language-selection {
+    display: flex;
+    gap: 15px;
+}
+
+.lang-btn {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 50px; /* Forme de pilule */
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lang-btn:hover {
+    background-color: var(--primary-orange); /* Changement de couleur au survol */
+    text-decoration: none;
+}
+
+.lang-btn.active {
+    background-color: var(--primary-orange); /* Le bouton actif est orange */
+    color: var(--white);
+}
+
+.hero-image-content {
+    flex: 1; /* Prend l'autre moitié de l'espace */
+    text-align: right;
+    z-index: 1; /* Moins prioritaire que le texte */
+    position: relative;
+    padding-top: 50px; /* Pour remonter un peu l'image */
+}
+
+.hero-image-content img {
+    max-width: 100%; /* S'assure que l'image ne dépasse pas */
+    height: auto;
+    display: block;
+    position: relative;
+    bottom: -80px; /* Fait remonter l'image de 80px au-dessus du padding du hero-section */
+}
+
+/* Style de la forme verte de fond (basée sur l'image) */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60%; /* Largeur de la forme */
+    height: 100%;
+    background: var(--light-blue); /* Couleur de la forme de fond */
+    transform: skewY(-10deg); /* Inclinaison de la forme */
+    transform-origin: bottom right;
+    z-index: 0; /* En arrière-plan */
+    border-top-left-radius: 150px; /* Arrondi sur le coin supérieur gauche de la forme */
+}
+
+/* Style de la forme orange/jaune (basée sur l'image) */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 120px; /* Ajuster la position */
+    right: 15%; /* Ajuster la position */
+    width: 150px; /* Taille du cercle */
+    height: 150px;
+    background: var(--primary-orange); /* Couleur du cercle */
+    border-radius: 50%;
+    z-index: 1;
+}
+
+
+/* --- Styles Responsives (importants pour ce design complexe) --- */
+@media (max-width: 992px) { /* Pour les tablettes et petits ordinateurs */
+    .top-bar-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .top-bar-left span {
+        margin-right: 0;
+        margin-bottom: 5px;
+        display: block;
+    }
+    .top-bar-right {
+        margin-top: 10px;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .main-nav ul li {
+        margin: 10px 15px;
+    }
+
+    .hero-inner {
+        flex-direction: column; /* Empile le texte et l'image */
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-text-content {
+        padding-bottom: 40px;
+    }
+
+    .hero-text-content h1 {
+        font-size: 3em;
+    }
+
+    .hero-image-content {
+        padding-top: 0;
+        text-align: center;
+        max-width: 80%; /* Limite la taille de l'image sur les écrans moyens */
+    }
+
+    .hero-image-content img {
+        bottom: 0; /* Réinitialise la position pour ne pas remonter trop */
+    }
+
+    .hero-section::before {
+        transform: skewY(-5deg); /* Moins d'inclinaison */
+        width: 80%; /* Prend plus de largeur sur les écrans plus petits */
+        border-top-left-radius: 80px;
+    }
+
+    .hero-section::after {
+        bottom: 50px;
+        right: 10%;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 768px) { /* Pour les mobiles */
+    .top-bar {
+        padding: 5px 0;
+    }
+    .top-bar-left span {
+        font-size: 0.75em;
+    }
+    .top-bar-right a {
+        margin-left: 10px;
+    }
+
+    header {
+        padding: 5px 0;
+    }
+    .logo {
+        height: 50px; /* Plus petit logo sur mobile */
+    }
+    .main-nav {
+        display: none; /* Cache le menu principal par défaut sur mobile */
+    }
+    .mobile-menu-toggle {
+        display: block; /* Affiche l'icône du menu burger */
+    }
+
+    .hero-section {
+        min-height: 450px;
+        padding: 60px 0 0;
+    }
+
+    .hero-text-content h1 {
+        font-size: 2.5em;
+    }
+
+    .language-selection {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .lang-btn {
+        width: 80%; /* Les boutons de langue prennent plus de largeur */
+        margin: 0 auto;
+    }
+
+    .hero-image-content {
+        max-width: 90%;
+    }
+
+    .hero-section::before {
+        height: 80%;
+        width: 100%;
+        border-top-left-radius: 0;
+        transform: skewY(0deg); /* Pas d'inclinaison sur les tout petits écrans */
+    }
+
+    .hero-section::after {
+        display: none; /* Cache le cercle orange sur mobile si l'espace est limité */
+    }
 }
