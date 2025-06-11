@@ -378,7 +378,7 @@ header {
     object-fit: contain; /* S'assure que l'image tient dans son cadre sans être coupée */
 }
 
-/* Styles des formes décoratives (basées sur la maquette, mais ajustées aux couleurs du logo) */
+/* Styles des formes décoratives (Ajusté pour être plus doux) */
 .hero-section::before {
     content: '';
     position: absolute;
@@ -386,12 +386,12 @@ header {
     right: 0;
     width: 60%;
     height: 100%;
-    background: linear-gradient(to top right, var(--primary-blue), var(--light-blue)); /* Dégradé de bleu pour la grande forme */
+    background: rgba(173, 216, 230, 0.4); /* Bleu clair (LightBlue) avec 40% d'opacité */
     transform: skewY(-10deg);
     transform-origin: bottom right;
     z-index: 0;
-    border-top-left-radius: 200px; /* Plus grand arrondi */
-    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    border-top-left-radius: 200px;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.05); /* Ombre très légère */
 }
 
 .hero-section::after {
